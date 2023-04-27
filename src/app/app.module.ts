@@ -8,6 +8,11 @@ import { SideBarComponentComponent } from './side-bar-component/side-bar-compone
 import { AppRoutingModule } from './app-routing.module';
 import { RoomComponent } from './room/room.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ReclamationComponent} from './reclamation/reclamation.component';
+import { AddReclamationComponent } from './reclamation/add-reclamation/add-reclamation.component';
+
 
 @NgModule({
   declarations: [
@@ -15,11 +20,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeComponentComponent,
     NavBarComponentComponent,
     SideBarComponentComponent,
+
     RoomComponent,
-    DashboardComponent
+    DashboardComponent,
+    ReclamationComponent,
+    AddReclamationComponent,
+
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

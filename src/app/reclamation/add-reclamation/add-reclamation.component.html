@@ -1,0 +1,63 @@
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <h1> {{action}} reclamation</h1>
+
+        <div class="card-body">
+
+          <form [formGroup]="recForm">
+            <div class="form-group">
+              <label for="content">content</label>
+              <input type="text" name="content" formControlName="content" [ngModel]="reclamation.content" id="content" class="form-control" placeholder="content">
+              <small *ngIf="!recForm.controls['content'].valid && recForm.controls['content'].touched">
+                <span *ngIf="recForm.controls['content'].hasError('required')">Champs obligatoire</span>
+                <span *ngIf="recForm.controls['content'].hasError('minlength')">Min length is 3</span>
+              </small>
+            </div>
+            <div class="form-group">
+              <label for="dateCreationClaim">Date of claim creation:</label>
+              <input type="date" id="dateCreationClaim" formControlName="dateCreationClaim">
+              <div *ngIf="recForm.controls.dateCreationClaim.invalid && recForm.controls.dateCreationClaim.touched">
+                <div *ngIf="recForm.controls.dateCreationClaim.errors.required">Date of claim creation is required</div>
+                <div *ngIf="recForm.controls.dateCreationClaim.errors.date">Invalid date format</div>
+              </div>
+            </div>
+            <label for="content">Type</label>
+              <div class="input-group mb-3">
+                <select class="custom-select" id="types">
+
+                  <option value="1">Plat</option>
+                  <option value="2">Personal</option>
+
+                </select>
+
+              </div>
+            <label for="content">Status Claim</label>
+
+            <div class="input-group mb-3">
+              <select class="custom-select" id="statusClaim">
+
+                <option value="1">TRAITE</option>
+                <option value="2">ENCOURS</option>
+                <option value="3">NONTRAITE</option>
+                <option value="4">CANCELLED</option>
+
+              </select>
+
+            </div>
+
+            <button (click)="Save()" type="submit" class="btn btn-danger" value="Register" > {{action}}</button>
+
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
