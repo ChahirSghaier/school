@@ -1,0 +1,20 @@
+<div class="comments">
+    <div class="comment" *ngFor="let comment of comments">
+      <p>{{ comment.text }}</p>
+      <button (click)="toggleReply(comment)">Reply</button>
+      <div class="replies" *ngIf="comment.showReplies">
+        <div class="reply" *ngFor="let reply of comment.replies">
+          <p>{{ reply.text }}</p>
+        </div>
+        <form *ngIf="comment.showForm" (submit)="addReply(comment)">
+          <input type="text" [(ngModel)]="comment.replyText">
+          <button type="submit">Post Reply</button>
+        </form>
+      </div>
+    </div>
+    <form (submit)="addComment()">
+      <input type="text" [(ngModel)]="commentText">
+      <button type="submit">Post Comment</button>
+    </form>
+  </div>
+  
